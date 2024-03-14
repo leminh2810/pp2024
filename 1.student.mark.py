@@ -1,52 +1,42 @@
-class Student:
-    def __int__(self,id,name,Dob):
-        self.id=id
-        self.name=name
-        self.Dob=Dob
-        self.mark={}
-class Course:
-    def __int__(self,id,name):
-        self.id=id
-        self.name=name
+student = []
+courses = []
+marks = []
+def input_students():
+    number_students = int(input("Insert number of students"))
+    for _ in range(number_students):
+        id = input("Student's id is")
+        name = input("Student's name is")
+        Dob = input("Student's dob is")
+        student.append(id,name,Dob)
 def input_courses():
-    courses = []
-    num_courses = int(input("Enter number of courses: "))
-    for i in range(num_courses):
-        id = input("Enter course id: ")
-        name = input("Enter course name: ")
-        courses.append(Course(id, name))
-    return courses
-def input_marks(students, courses):
+    number_courses = int(input("Insert number of courses"))
+    for _ in range(number_courses):
+        id = input("Insert course's id:")
+        name = input("Insert course's name:")
+        courses.append(id,name)
+def input_marks():
+    course_id = input("Insert a course id")
+    for student in student:
+        mark = float(input("Enter mark for {student[1]} in {course_id[0]}"))
+        marks[{student[0],course_id}] = mark
+def list_courses():
     for course in courses:
-        for student in students:
-            student.marks[course.id] = input(f"Enter marks for {student.name} in {course.name}: ")
-def list_courses(courses):
-    print("Courses")
-    for course in courses:
-        print(f"ID:{course.id},{course.name}")
-def list_Student(students):
-    print("Student")
-    for student in students:
-        print(f"ID:{student.id},Name:{student.name},Dob:{student.Dob}")
-def show_student_marks(students, course_id):
-    print(f"Marks for course {course_id}:")
-    for student in students:
-        if course_id in student.marks:
-            print(f"{student.name}: {student.marks[course_id]}")
-students = input.students()
-courses=input.courses()
-input_marks(students,courses)
-list_courses(courses)
-list_Student(students)
-course_id= input("Enter id course id for mark:")
-show_student_marks(students, course_id)
-
-
-
+        print(course)
+def list_students():
+    for student in student:
+        print(student)
+def show_student_marks():
+    for student in student:
+         print(f"Mark for student {student[1]} in course {course_id}: {marks[(student[0], course_id)]}"
+               input_students()
+input_courses()
+input_marks()
+list_courses()
+list_students()
+course_id = input("Enter course id to show marks: ")
+show_marks(course_id)
 
     
-
+    
     
 
-
-        
